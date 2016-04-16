@@ -24,11 +24,14 @@ app.use(bodyParser.urlencoded({
 // Routes declare here
 
 var routes = {
-  example: require('./routes/example')
+  example: require('./routes/example'),
+  vinly: require('./routes/vinly-route')
 };
 
 app.use('/example/', routes.example);
+app.use('/', routes.example);
 
+app.use('/vinly', routes.vinly);
 
 // error hndlers
 app.use(function(req, res, next) {
