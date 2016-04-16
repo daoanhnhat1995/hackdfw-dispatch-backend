@@ -20,10 +20,10 @@ var router = express.Router();
  *
  */
 function updateLoc(req, res) {
-  let uid = req.body['uid']
-  let lat = req.body['lat']
-  let lng = req.body['lng']
-  let speed = req.body['speed']
+  let uid   = req.body['uid'],
+      lat   = req.body['lat'],
+      lng   = req.body['lng'],
+      speed = req.body['speed']
 
   if(uid == undefined || lat == undefined || lng == undefined || speed == undefined) {
     return res.status(422).json({ message: 'invalid' })
