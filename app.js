@@ -24,10 +24,12 @@ app.use(bodyParser.urlencoded({
 // Routes declare here
 
 var routes = {
-  example: require('./routes/example')
+  example: require('./routes/example'),
+  addvehicle: require('./routes/addvehicle')
 };
 
 app.use('/example/', routes.example);
+app.use('/addvehicle/', routes.addvehicle);
 
 
 // error hndlers
