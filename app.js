@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var path = require('path');
 
 // mongoose
-//mongoose.connect('mongodb://localhost/client-app');
+mongoose.connect('mongodb://hackuser:hackuser16@ds030829.mlab.com:30829/hackdfw16');
 
 // create instance of express
 var app = express();
@@ -24,10 +24,12 @@ app.use(bodyParser.urlencoded({
 // Routes declare here
 
 var routes = {
-  example: require('./routes/example')
+  example: require('./routes/example'),
+  recast: require('./routes/recast')
 };
 
 app.use('/example/', routes.example);
+app.use('/recast/',routes.recast);
 
 
 // error hndlers
