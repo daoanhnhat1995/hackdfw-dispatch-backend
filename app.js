@@ -24,11 +24,12 @@ app.use(bodyParser.urlencoded({
 // Routes declare here
 
 var routes = {
-  example: require('./routes/example')
+  example: require('./routes/example'),
+  geo: require('./routes/geo')
 };
 
 app.use('/example/', routes.example);
-
+app.use('/geo/', routes.geo);
 
 // error hndlers
 app.use(function(req, res, next) {
