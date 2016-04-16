@@ -1,7 +1,10 @@
 # hackdfw-dispatch-backend
 
-#Install 
+# Install
   npm install
 
-#Run
+# Run
   npm start
+
+# Generate API Docs
+  apidoc -i ./routes -o ./apiDoc

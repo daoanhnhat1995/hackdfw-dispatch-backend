@@ -11,14 +11,25 @@ var router = express.Router();
  * @apiParam {Number} uid Unique device id
  * @apiParam {Number} lat Latitude
  * @apiParam {Number} lng Longitude
+ * @apiParam {Number} speed Speed of vehicle
  *
  *
  * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
  *     HTTP/1.1 200 OK
  *
  */
 function updateLoc(req, res) {
-  return res.status(200).json({status:"Done"});
+  let uid = req.body['uid']
+  let lat = req.body['lat']
+  let lng = req.body['lng']
+  let speed = req.body['speed']
+
+  if(uid == undefined || lat == undefined || lng == undefined || speed == undefined) {
+    return res.status(422).json({ message: 'invalid' })
+  }
+
+  return res.status(200).json({ message: 'valid' })
 }
 
 router.post('/updateLocation', updateLoc);
