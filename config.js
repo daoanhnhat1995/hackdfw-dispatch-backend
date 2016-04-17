@@ -1,6 +1,7 @@
 module.exports = {
-  apiKeys:{
-    recast: 'faf9b202408e1d74b3660a76a399482c'
+  apiKey:{
+    wit:'26YMGG7L6I5CIDLFRBBD6ERT3W6KQC4U',
+    googleMap: 'AIzaSyCUTJ_SQB64rn7PjB5g-lzQUX15H3cwduA'
   }
 }
 

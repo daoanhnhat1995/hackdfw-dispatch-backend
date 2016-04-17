@@ -1,21 +1,18 @@
 var express = require('express');
 var router= express.Router();
-var recastClient = require('./../lib/recast');
+var witClient = require('./../lib/recast');
 
 function test(req,res){
-  console.log(req.body.text);
-  var payload = {
-    text: req.body.text
-  };
 
-  recastClient
-    .parseText(payload)
-    .then(function(data){
-      return res.status(200).json({message:data});
-    })
-    .catch(function(err){
-      return res.status(400).json({message:"Bad request"});
-    });
+  witClient
+  .sendMessage('Hello')
+  .then(function(data){
+    return res.status(200).json({data:data});
+  })
+  .catch(funtion(err){
+    return res.status(400).json({err:'fail'});
+  });
+
 }
 
 router.post('/test',test);

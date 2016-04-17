@@ -25,11 +25,11 @@ app.use(bodyParser.urlencoded({
 
 var routes = {
   example: require('./routes/example'),
-  recast: require('./routes/recast')
+  addvehicle: require('./routes/addvehicle')
 };
 
 app.use('/example/', routes.example);
-app.use('/recast/',routes.recast);
+app.use('/addvehicle/', routes.addvehicle);
 
 
 // error hndlers
