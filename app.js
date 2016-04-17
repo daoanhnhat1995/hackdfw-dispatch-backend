@@ -25,13 +25,13 @@ app.use(bodyParser.urlencoded({
 
 
 var routes = {
-    example: require('./routes/example')
-    , vehicle: require('./routes/vehicle')
-    , report: require('./routes/report')
-    , home: require('./routes/home')
+    message: require('./routes/message'),
+    vehicle: require('./routes/vehicle'),
+    report: require('./routes/report'),
+    home: require('./routes/home')
 };
 
-app.use('/example/', routes.example);
+app.use('/message/', routes.message);
 app.use('/vehicle/', routes.vehicle);
 app.use('/report/', routes.report);
 app.use('/', routes.home);

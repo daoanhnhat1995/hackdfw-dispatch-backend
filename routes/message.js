@@ -4,13 +4,14 @@ var express = require('express');
 var router = express.Router();
 var witClient = require('./../lib/wit');
 var geodecoder = require('./../lib/location-api');
+var _ = require('underscore');
 
-function sample(req, res) {
-    return res.status(200).json({
-        status: "Done"
-    });
-}
 
+/*
+ * POST /message
+ * @param {Object} text message object from wit.ai
+ * @return {entites,locations}
+ */
 function handleText(req,res,next){
 
   witClient
@@ -27,9 +28,10 @@ function handleText(req,res,next){
 
 }
 
-function decodeGeo(){
+function decodeGeo(req,res){
 
-  var location = req.body.location.outcomes[0].entities.location[0].value + ' , TX';
+  var entities = req.body.location.outcomes[0].entities;
+  var location =  entities.location[0].value + ' , TX';
   geodecoder
   .decode(location)
   .then(function(data){
@@ -38,7 +40,9 @@ function decodeGeo(){
       latitude: data[0].latitude
     };
 
-    return res.status(200).json({location: geoPoint});
+    var keys = _.keys(entities);
+
+    return res.status(200).json({location: geoPoint,keys});
   })
   .catch(function(err){
 
@@ -47,26 +51,9 @@ function decodeGeo(){
   });
 
 
-  /*
-   * @param {Object} location geo data grom geodecoder 
-   * @return {
-   *   {long,lat}
-   * }
-   */
-
-  function parseGeo(rawdata){
-    var location = rawdata.location[0];
-    return {
-      longitude:location.longitude,
-      latitude: location.latitude
-    }
-  }
 }
 
 
-router.get('/',sample);
-router.post('/sendMessage',handleText,decodeGeo);
-router.post('/sendText',handleText);
-router.get('/geolocation',decodeGeo);
+router.post('/',handleText,decodeGeo);
 
 module.exports = router;
