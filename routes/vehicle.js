@@ -3,6 +3,7 @@
 var express = require('express');
 var Vehicle = require('../models/vehicle');
 var router = express.Router();
+var pusher = require('./../lib/pusher');
 
 
 function addNewVehicle(req, res) {
@@ -31,7 +32,8 @@ function addNewVehicle(req, res) {
 function getVehicles(req, res) {
     Vehicle.find({}, function (err, vehicles) {
         return res.status(200).json(vehicles);
-})}
+})
+}
 
 
 

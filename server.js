@@ -37,7 +37,4 @@ function loadMessage(){
 }
 */
 
-pusher.trigger('dispatch','location',{
-  "message":"hello"
-});
 
