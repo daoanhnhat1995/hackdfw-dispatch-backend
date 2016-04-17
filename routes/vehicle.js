@@ -67,7 +67,7 @@ function addNewVehicle(req, res) {
 
     return res.status(200).json({
         status: "Done"
-        , request_body: req.body
+        , request_body: vehicle
     });
 }
 
@@ -79,7 +79,7 @@ function getVehicles(req, res) {
 
 function updateLocation(req, res) {
     var query = {
-        'name': req.body.name
+        'name': req.body._id
     };
     req.newData = {};
     req.newData.loc = {

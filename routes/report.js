@@ -76,7 +76,7 @@ function addNewReport(req, res) {
 
     return res.status(200).json({
         status: "Done"
-        , request_body: req.body
+        , request_body: report
     });
 }
 
@@ -88,7 +88,7 @@ function getReports(req, res) {
 
 function updateReport(req, res) {
     var query = {
-        'name': req.body.name
+        'name': req.body._id
     };
     req.newData = {};
 
@@ -98,6 +98,7 @@ function updateReport(req, res) {
             , coordinates: [req.body.lng, req.body.lat]
         }
     }
+    if (req.body.name != undefined) req.newData.name = req.body.name;
     if (req.body.type != undefined) req.newData.type = req.body.type;
     if (req.body.status != undefined) req.newData.status = req.body.status;
     if (req.body.transcript != undefined) req.newData.transcript = req.body.transcript;
