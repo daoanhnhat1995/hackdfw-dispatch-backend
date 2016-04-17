@@ -1,8 +1,8 @@
 //dependencies
 var express = require('express');
+var mongoose = require('mongoose');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
-var mongoose = require('mongoose');
 var path = require('path');
 
 // mongoose
@@ -23,30 +23,33 @@ app.use(bodyParser.urlencoded({
 
 // Routes declare here
 
+
 var routes = {
-  example: require('./routes/example'),
-  addvehicle: require('./routes/addvehicle')
+    example: require('./routes/example')
+    , vehicle: require('./routes/vehicle')
 };
 
 app.use('/example/', routes.example);
-app.use('/addvehicle/', routes.addvehicle);
+app.use('/vehicle/', routes.vehicle);
 
 
 // error hndlers
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
 
-app.use(function(err, req, res) {
+app.use(function (err, req, res) {
     res.status(err.status || 500);
     res.end(JSON.stringify({
-        message: err.message,
-        error: {}
+        message: err.message
+        , error: {}
     }));
 });
 logger('combined', {
-  skip: function (req, res) { return res }
+    skip: function (req, res) {
+        return res
+    }
 });
 module.exports = app;

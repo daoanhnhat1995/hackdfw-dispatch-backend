@@ -5,8 +5,10 @@ var router = express.Router();
 var witClient = require('./../lib/wit');
 var geodecoder = require('./../lib/location-api');
 
-function sample(req,res){
-  return res.status(200).json({status:"Done"});
+function sample(req, res) {
+    return res.status(200).json({
+        status: "Done"
+    });
 }
 
 function handleText(req,res){
