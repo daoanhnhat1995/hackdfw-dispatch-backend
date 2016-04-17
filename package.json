@@ -1,36 +1,37 @@
 {
-  "name": "hack-dfw-dispatch",
-  "version": "1.0.0",
-  "description": "Backend for hackdfw dispatch app",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/daoanhnhat1995/hackdfw-dispatch-backend.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/daoanhnhat1995/hackdfw-dispatch-backend/issues"
-  },
-  "homepage": "https://github.com/daoanhnhat1995/hackdfw-dispatch-backend#readme",
-  "dependencies": {
-    "amqp": "^0.2.4",
-    "body-parser": "^1.15.0",
-    "cors": "^2.7.1",
-    "debug": "^2.2.0",
-    "express": "^4.13.4",
-    "mongoose": "^4.4.12",
-    "morgan": "^1.7.0",
-    "node-geocoder": "^3.9.1",
-    "node-wit": "^3.2.0",
-    "pusher": "^1.2.1",
-    "superagent": "^1.8.3"
-  },
-  "devDependencies": {
-    "underscore": "^1.8.3"
-  }
+    "name": "hack-dfw-dispatch"
+    , "version": "1.0.0"
+    , "description": "Backend for hackdfw dispatch app"
+    , "main": "app.js"
+    , "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+        , "start": "node server.js"
+    }
+    , "repository": {
+        "type": "git"
+        , "url": "git+https://github.com/daoanhnhat1995/hackdfw-dispatch-backend.git"
+    }
+    , "author": ""
+    , "license": "MIT"
+    , "bugs": {
+        "url": "https://github.com/daoanhnhat1995/hackdfw-dispatch-backend/issues"
+    }
+    , "homepage": "https://github.com/daoanhnhat1995/hackdfw-dispatch-backend#readme"
+    , "dependencies": {
+        "amqp": "^0.2.4"
+        , "body-parser": "^1.15.0"
+        , "cors": "^2.7.1"
+        , "debug": "^2.2.0"
+        , "express": "^4.13.4"
+        , "mongoose": "^4.4.12"
+        , "morgan": "^1.7.0"
+        , "node-geocoder": "^3.9.1"
+        , "node-wit": "^3.2.0"
+        , "pusher": "^1.2.1"
+        , "superagent": "^1.8.3"
+        , "underscore": "^1.8.3"
+    }
+    , "devDependencies": {
+        "underscore": "^1.8.3"
+    }
 }
