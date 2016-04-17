@@ -13,4 +13,4 @@ var Report = mongoose.model('Reports', {
     , numMedic: Number
 });
 
-module.export = Report;
+module.exports = Report;

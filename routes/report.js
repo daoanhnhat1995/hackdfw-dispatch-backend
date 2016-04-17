@@ -8,7 +8,7 @@ var router = express.Router();
 function addNewReport(req, res) {
     console.log(JSON.stringify(req.body));
 
-    console.log(req.body.name)
+    console.log(req.body.name);
 
     var report = new Report({
         name: req.body.name

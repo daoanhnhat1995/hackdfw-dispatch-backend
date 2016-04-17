@@ -8,7 +8,7 @@ var router = express.Router();
 function addNewVehicle(req, res) {
     console.log(JSON.stringify(req.body));
 
-    console.log(req.body.name)
+    console.log(req.body.name);
 
     var vehicle = new Vehicle({
         name: req.body.name
@@ -34,12 +34,6 @@ function getVehicles(req, res) {
 
 
 
-}
-
-function returnError(req, res) {
-    return res.status(301).json({
-        status: "Please use post"
-    })
 }
 
 router.post('/', addNewVehicle);

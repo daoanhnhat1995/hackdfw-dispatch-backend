@@ -27,10 +27,12 @@ app.use(bodyParser.urlencoded({
 var routes = {
     example: require('./routes/example')
     , vehicle: require('./routes/vehicle')
+    , report: require('./routes/report')
 };
 
 app.use('/example/', routes.example);
 app.use('/vehicle/', routes.vehicle);
+app.use('/report/', routes.report);
 
 
 // error hndlers
