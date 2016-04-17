@@ -1,25 +1,30 @@
 'use strict';
 
 var express = require('express');
-var Vehicle = require('../models/vehicle');
+var Report = require('../models/report');
 var router = express.Router();
 
 
-function addNewVehicle(req, res) {
+function addNewReport(req, res) {
     console.log(JSON.stringify(req.body));
 
     console.log(req.body.name)
 
-    var vehicle = new Vehicle({
+    var report = new Report({
         name: req.body.name
         , type: req.body.type
         , status: req.body.status
+        , user: req.body.user
+        , transcript: req.body.transcript
+        , numFire: req.body.numFire
+        , numPolice: req.body.numPolice
+        , numMedic: req.body.numMedic
         , loc: {
             type: "Point"
             , coordinates: [req.body.lng, req.body.lat]
         }
     });
-    vehicle.save();
+    report.save();
 
     return res.status(200).json({
         status: "Done"
@@ -27,24 +32,17 @@ function addNewVehicle(req, res) {
     });
 }
 
-function getVehicles(req, res) {
-    Vehicle.find({}, function (err, vehicles) {
-        return res.status(200).json(vehicles);
+function getReports(req, res) {
+    Report.find({}, function (err, reports) {
+        return res.status(200).json(reports);
     });
-
-
-
 }
 
-function returnError(req, res) {
-    return res.status(301).json({
-        status: "Please use post"
-    })
-}
 
-router.post('/', addNewVehicle);
 
-router.get('/', getVehicles);
+router.post('/', addNewReport);
+
+router.get('/', getReports);
 
 
 
