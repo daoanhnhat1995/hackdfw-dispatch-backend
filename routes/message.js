@@ -31,7 +31,10 @@ function handleText(req,res,next){
 function decodeGeo(req,res){
 
   var entities = req.body.location.outcomes[0].entities;
-  var location =  entities.location[0].value + ' , TX';
+  var location = "";
+  if(entities.location){
+    location =  entities.location[0].value + ' , TX';
+  }
   geodecoder
   .decode(location)
   .then(function(data){
@@ -46,7 +49,7 @@ function decodeGeo(req,res){
   })
   .catch(function(err){
 
-    return res.status(200).json({err: err});
+    return res.status(400).json({err: err});
 
   });
 
