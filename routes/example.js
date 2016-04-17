@@ -11,31 +11,61 @@ function sample(req, res) {
     });
 }
 
-function handleText(req,res){
+function handleText(req,res,next){
+
   witClient
-  .sendMessage("My house is on fire at 800 W sdsd")
+  .sendMessage(req.body.message)
   .then(function(res){
-    return res.status(200).json({data:res});
+    req.body.location = res;
+    next();
   })
   .catch(function(err){
-    return res.status(400).json({err:err});
+    // Dont know why it gives err
+    req.body.location = err;
+    next();
   });
 
 }
 
-function decodeGeo(req,res){
+function decodeGeo(){
+
+  var location = req.body.location.outcomes[0].entities.location[0].value + ' , TX';
   geodecoder
-  .decode('700 W Mitchell Circle, 76013')
+  .decode(location)
   .then(function(data){
-    return res.status(200).json({message: data});
+    var geoPoint = {
+      longitude: data[0].longitude,
+      latitude: data[0].latitude
+    };
+
+    return res.status(200).json({location: geoPoint});
   })
   .catch(function(err){
-    return res.status(400).json({err: err});
+
+    return res.status(200).json({err: err});
+
   });
+
+
+  /*
+   * @param {Object} location geo data grom geodecoder 
+   * @return {
+   *   {long,lat}
+   * }
+   */
+
+  function parseGeo(rawdata){
+    var location = rawdata.location[0];
+    return {
+      longitude:location.longitude,
+      latitude: location.latitude
+    }
+  }
 }
 
 
 router.get('/',sample);
+router.post('/sendMessage',handleText,decodeGeo);
 router.post('/sendText',handleText);
 router.get('/geolocation',decodeGeo);
 

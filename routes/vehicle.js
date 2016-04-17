@@ -31,8 +31,9 @@ function addNewVehicle(req, res) {
 function getVehicles(req, res) {
     Vehicle.find({}, function (err, vehicles) {
         return res.status(200).json(vehicles);
-    });
-}
+});
+
+
 
 function updateLocation(req, res) {
     var query = {
