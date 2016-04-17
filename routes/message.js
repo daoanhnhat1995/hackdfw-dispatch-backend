@@ -13,6 +13,7 @@ var _ = require('underscore');
  * @return {entites,locations}
  */
 function handleText(req,res,next){
+  console.log(req.body);
 
   witClient
   .sendMessage(req.body.message)
@@ -29,7 +30,10 @@ function handleText(req,res,next){
 }
 
 function decodeGeo(req,res){
-
+ console.log(JSON.stringify(req.body));
+  if(req.body.location.outcomes === undefined){
+    return res.status(200).json({data:null});
+  }
   var entities = req.body.location.outcomes[0].entities;
   var location = "";
   if(entities.location){
