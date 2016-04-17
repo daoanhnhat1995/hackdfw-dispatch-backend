@@ -2,7 +2,8 @@ var app = require('./app'),
      http = require('http'),
      url = require('url'),
      amqp = require('amqp'),
-     locationApi = require('./lib/location-api');
+     locationApi = require('./lib/location-api'),
+     pusher = require('./lib/pusher');
 
 
 app.set('port', process.env.PORT || 3001);
@@ -18,6 +19,7 @@ var rabbitMQ = amqp.createConnection({
 
 var exchange;
 
+/*
 rabbitMQ.addListener('ready', function () {
     // create the exchange if it doesnt exist
     exchange = rabbitMQ.exchange('rabbitExchange', {
@@ -28,25 +30,7 @@ rabbitMQ.addListener('ready', function () {
 
 
 });
-
-function getMessage(){
-  var message = locationApi.decodeGeo('700 W Mitchell Cir');
-
-  return message;
-
-}
-
-function sendMessage(msg){
-    console.log(msg);
-    if (exchange) {
-
-        exchange.publish('key.a', msg);
-
-    } else {
-        console.log("exchange not around now...");
-    }
-
-}
+*/
 
 
 
