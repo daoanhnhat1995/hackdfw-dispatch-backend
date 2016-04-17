@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
+var cors = require('cors');
 
 // mongoose
 mongoose.connect('mongodb://hackuser:hackuser16@ds030829.mlab.com:30829/hackdfw16');
@@ -25,13 +26,13 @@ app.use(bodyParser.urlencoded({
 
 
 var routes = {
-    example: require('./routes/example')
-    , vehicle: require('./routes/vehicle')
-    , report: require('./routes/report')
-    , home: require('./routes/home')
+    message: require('./routes/message'),
+    vehicle: require('./routes/vehicle'),
+    report: require('./routes/report'),
+    home: require('./routes/home')
 };
-
-app.use('/example/', routes.example);
+app.use(cors());
+app.use('/message/', routes.message);
 app.use('/vehicle/', routes.vehicle);
 app.use('/report/', routes.report);
 app.use('/', routes.home);
