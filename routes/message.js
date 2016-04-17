@@ -37,9 +37,10 @@ function decodeGeo(req,res){
   }
   var entities = req.body.location.outcomes[0].entities;
   var location = "";
+  var keys = _.keys(entities);
   if(entities.location){
     location =  entities.location[0].value + ' , TX';
-  }
+  
   geodecoder
   .decode(location)
   .then(function(data){
@@ -48,7 +49,6 @@ function decodeGeo(req,res){
       latitude: data[0].latitude
     };
 
-    var keys = _.keys(entities);
 
     return res.status(200).json({location: geoPoint,keys});
   })
@@ -57,6 +57,9 @@ function decodeGeo(req,res){
     return res.status(400).json({err: err});
 
   });
+  } else {
+    return res.status(200).json(keys);
+  }
 
 
 }
