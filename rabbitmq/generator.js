@@ -15,19 +15,6 @@ function sendMsg(msg) {
     }
 }
 
-var server = http.createServer(function (req, res) {
-    // your normal server code 
-    var path = url.parse(req.url).pathname;
-
-
-    sendMsg(path);
-    res.writeHead(200, {
-        'Content-Type': 'text/html'
-    })
-    res.write('OK', 'utf8');
-    res.end();
-});
-
 
 
 
