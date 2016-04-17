@@ -1,1 +1,0 @@
-define({  "name": "dispatch",  "version": "0.1.0",  "description": "backend",  "title": "backend",  "url": "https://github.com/idappthat/Dispatch-Backend",  "sampleUrl": false,  "apidoc": "0.2.0",  "generator": {    "name": "apidoc",    "time": "2016-04-17T06:08:12.450Z",    "url": "http://apidocjs.com",    "version": "0.15.1"  }});
