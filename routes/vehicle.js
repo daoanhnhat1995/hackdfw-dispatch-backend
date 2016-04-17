@@ -82,9 +82,15 @@ function updateLocation(req, res) {
         'name': req.body._id
     };
     req.newData = {};
-    req.newData.loc = {
-        type: "Point"
-        , coordinates: [req.body.lng, req.body.lat]
+    if (req.body.status != undefined) req.newData.status = req.body.status;
+    if (req.body.speed != undefined) req.newData.speed = req.body.speed;
+    if (req.body.type != undefined) req.newData.type = req.body.type;
+
+    if (req.body.lat != undefined && req.body.lng != undefined) {
+        req.newData.loc = {
+            type: "Point"
+            , coordinates: [req.body.lng, req.body.lat]
+        }
     }
     Vehicle.findOneAndUpdate(query, req.newData, {
         upsert: true
