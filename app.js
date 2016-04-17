@@ -29,12 +29,14 @@ var routes = {
     message: require('./routes/message'),
     vehicle: require('./routes/vehicle'),
     report: require('./routes/report'),
+    crash: require('./routes/crash'),
     home: require('./routes/home')
 };
 app.use(cors());
 app.use('/message/', routes.message);
 app.use('/vehicle/', routes.vehicle);
 app.use('/report/', routes.report);
+app.use('/crash/',routes.crash);
 app.use('/', routes.home);
 
 

@@ -13,7 +13,7 @@ var _ = require('underscore');
  * @return {entites,locations}
  */
 function handleText(req,res,next){
-  console.log(req.body);
+  console.log(JSON.stringify(req.body));
 
   witClient
   .sendMessage(req.body.message)
@@ -60,7 +60,11 @@ function decodeGeo(req,res){
 
 }
 
-
+function handleCrash(req,res){
+  console.log(req.body);
+  return res.status(200).json({body:req.body});
+}
+router.post('/crash',handleCrash);
 router.post('/',handleText,decodeGeo);
-
 module.exports = router;
+
