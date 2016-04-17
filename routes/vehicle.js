@@ -5,6 +5,49 @@ var Vehicle = require('../models/vehicle');
 var router = express.Router();
 
 
+/**
+ * @api {get} /vehicle get vehicles
+ *
+ * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
+ *     HTTP/1.1 200 OK
+ *
+ */
+
+/**
+ * @api {post} /vehicle Add vehicle
+ *
+ * @apiParam {String} name Unique report name
+ * @apiParam {String} staus status
+ * @apiParam {Number} lng Longitude
+ * @apiParam {Number} lat Latitude
+ * @apiParam {String} type
+ * @apiParam {String} speed
+ *
+ *
+ * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
+ *     HTTP/1.1 200 OK
+ *
+ */
+
+/**
+ * @api {post} /vehicle/updateVehicle update vehicle
+ *
+ * @apiParam {String} name Unique report name
+ * @apiParam {String} staus status
+ * @apiParam {Number} lng Longitude
+ * @apiParam {Number} lat Latitude
+ * @apiParam {String} type
+ * @apiParam {String} speed
+ *
+ *
+ * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
+ *     HTTP/1.1 200 OK
+ *
+ */
+
 function addNewVehicle(req, res) {
     console.log(JSON.stringify(req.body));
 

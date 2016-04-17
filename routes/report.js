@@ -4,6 +4,54 @@ var express = require('express');
 var Report = require('../models/report');
 var router = express.Router();
 
+/**
+ * @api {get} /report get reports
+ *
+ * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
+ *     HTTP/1.1 200 OK
+ *
+ */
+
+/**
+ * @api {post} /report Add report
+ *
+ * @apiParam {String} name Unique report name
+ * @apiParam {String} staus status
+ * @apiParam {Number} lng Longitude
+ * @apiParam {Number} lat Latitude
+ * @apiParam {Number} numFire 
+ * @apiParam {Number} numPolice
+ * @apiParam {Number} numMedic
+ * @apiParam {String} transcript
+ * @apiParam {String} user
+ *
+ *
+ * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
+ *     HTTP/1.1 200 OK
+ *
+ */
+
+/**
+ * @api {post} /report/updateReport update report
+ *
+ * @apiParam {String} name Unique report name
+ * @apiParam {String} optional staus status
+ * @apiParam {Number} optional lng Longitude
+ * @apiParam {Number} optional lat Latitude
+ * @apiParam {Number} optional numFire 
+ * @apiParam {Number} optional numPolice
+ * @apiParam {Number} optional numMedic
+ * @apiParam {String} optional transcript
+ * @apiParam {String} optional user
+ *
+ *
+ * @apiSuccessExample Success-Response:
+ *     {message: "valid"}
+ *     HTTP/1.1 200 OK
+ *
+ */
 
 function addNewReport(req, res) {
     console.log(JSON.stringify(req.body));
