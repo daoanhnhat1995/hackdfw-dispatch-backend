@@ -2,6 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
+
 var witClient = require('./../lib/wit');
 var geodecoder = require('./../lib/location-api');
 var _ = require('underscore');
