@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 var path = require('path');
+var cors = require('cors');
 
 // mongoose
 mongoose.connect('mongodb://hackuser:hackuser16@ds030829.mlab.com:30829/hackdfw16');
@@ -30,7 +31,7 @@ var routes = {
     report: require('./routes/report'),
     home: require('./routes/home')
 };
-
+app.use(cors());
 app.use('/message/', routes.message);
 app.use('/vehicle/', routes.vehicle);
 app.use('/report/', routes.report);
