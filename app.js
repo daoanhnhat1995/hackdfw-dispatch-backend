@@ -26,11 +26,11 @@ app.use(bodyParser.urlencoded({
 
 var routes = {
     example: require('./routes/example')
-    , addvehicle: require('./routes/addvehicle')
+    , vehicle: require('./routes/vehicle')
 };
 
 app.use('/example/', routes.example);
-app.use('/addvehicle/', routes.addvehicle);
+app.use('/vehicle/', routes.vehicle);
 
 
 // error hndlers

@@ -27,6 +27,15 @@ function addNewVehicle(req, res) {
     });
 }
 
+function getVehicles(req, res) {
+    Vehicle.find({}, function (err, vehicles) {
+        return res.status(301).json(vehicles);
+    });
+
+
+
+}
+
 function returnError(req, res) {
     return res.status(301).json({
         status: "Please use post"
@@ -35,7 +44,7 @@ function returnError(req, res) {
 
 router.post('/', addNewVehicle);
 
-router.get('/', returnError);
+router.get('/', getVehicles);
 
 
 
