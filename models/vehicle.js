@@ -6,6 +6,7 @@ var Vehicle = mongoose.model('Vehicles', {
     , type: String
     , loc: Object
     , status: String
+    , speed: Number
 });
 
 module.exports = Vehicle;
